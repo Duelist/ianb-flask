@@ -6,10 +6,6 @@ from flask import render_template
 def index():
     return render_template('index.html', context=context)
 
-@app.route('/about')
-def about():
-    return render_template('about.html', context=context)
-
 @app.route('/blog')
 def blog():
     return render_template('blog.html', context=context)
