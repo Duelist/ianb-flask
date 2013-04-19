@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/base.css" type="text/css">
+    <title>{{ context.title }}</title>
+  </head>
+  <body class="container">
+    {% block content %}
+    {% endblock %}
+  </body>
+  <footer>
+    <p>{{ context.version }}</p>
+  </footer>
+</html>
