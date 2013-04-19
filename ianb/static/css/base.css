@@ -2,6 +2,7 @@ body {
   font-family: "HelveticaNeue-Light",
                "Helvetica Neue Light",
                "Helvetica Neue", 
-               "Lucida Grande";
+               "Lucida Grande",
+               Helvetica;
   text-align: center;
 }
