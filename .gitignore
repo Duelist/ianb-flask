@@ -1,4 +1,9 @@
+bin
+lib
+include
+*.swp
 *.log
 *.pyc
 *.DS_Store
+.Python
 runserver.py
