@@ -1,4 +1,10 @@
 from flask import Flask
-app = Flask(__name__)
+from flask.ext.mongoengine import MongoEngine
+from ianb import local_settings
 
-from ianb import views
+app = Flask(__name__)
+app.config['MONGODB_SETTINGS'] = local_settings.mongo_settings
+app.config['SECRET_KEY'] = local_settings.secret_key
+db = MongoEngine(app)
+
+from ianb import models, views

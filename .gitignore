@@ -6,4 +6,5 @@ include
 *.pyc
 *.DS_Store
 .Python
+ianb/local_settings.py
 runserver.py
