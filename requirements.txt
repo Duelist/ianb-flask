@@ -1,6 +1,6 @@
-Flask
-Jinja2
-Werkzeug
+flask
+jinja2
+werkzeug
 wsgiref
 WTForms
 mongoengine

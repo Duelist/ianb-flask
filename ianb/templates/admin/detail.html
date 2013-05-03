@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <div>
+    {% if context.DEBUG %}
+    <div>{{ context.debug_msg }}</div>
+    {% endif %}
+    <form action="." method="post">
+      <table>
+        {% for field in context.form %}
+        {% if field.type in ['CSRFTokenField', 'HiddenField'] %}
+          {{ field() }}
+        {% else %}
+        <tr>
+          <td style="width: 100px">
+            {{ field.label }}
+          </td>
+          <td style="width: 500px">
+          {% if field.name == "body" %}
+            {{ field(rows=10, cols=40) }}
+          {% else %}
+            {{ field() }}
+          {% endif %}
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        <tr>
+          <td colspan="2">
+            <input type="submit" value="Submit">
+          </td>
+        </tr>
+      </table>
+    </form>
+  </div>
+{% endblock %}

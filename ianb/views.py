@@ -1,17 +1,17 @@
-from ianb import app
-from flask import render_template
+from flask import Blueprint, render_template
 
-context = {
-  'version': '0.01',
-  'title': 'Ian Benedict',
-  'twitter_username': 'Duelist',
-  'github_username': 'Duelist',
-}
+from ianb import app, local_settings
+from ianb.models import Post
 
-@app.route('/')
-def index():
-    return render_template('index.html', context=context)
+blog = Blueprint('blog', __name__, template_folder='templates')
+
+@blog.route('/')
+def list():
+    posts = Post.objects.all()
+    return render_template('blog/list.html',
+                           posts=posts,
+                           context=local_settings.context)
 
 @app.errorhandler(404)
 def error404(error):
-    return render_template('404.html', context=context), 404
+    return render_template('404.html', context=local_settings.context), 404

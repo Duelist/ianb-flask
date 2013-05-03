@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <div>
+    {% for post in posts %}
+      <article>
+        <h4>{{ post.title }}</h4>
+        {% if post.body %}
+        	{% if post.type == 'QuotePost' %}
+        	<blockquote>{{ post.body }}</blockquote>
+        	<p>- {{ post.author }}</p>
+        	{% else %}
+        	<p>{{ post.body }}</p>
+        	{% endif %}
+        {% endif %}
+        {% if post.embed %}
+        	{{ post.embed|safe() }}
+        {% endif %}
+        {% if post.image_url %}
+        	<p><img src="{{ post.image_url|safe() }}" /></p>
+        {% endif %}
+      {% endfor %}
+    </article>
+  </div>
+{% endblock %}

@@ -1,7 +1,11 @@
 {% extends "base.html" %}
-{% block content %}
+
+{% block main %}
   <div>
     <h2>Ian Benedict</h2>
-    <h3>This install uses virtualenv. It's pretty rad.</h3>
+    <div>
+      {% block content %}
+      {% endblock %}
+    </div>
   </div>
 {% endblock %}
