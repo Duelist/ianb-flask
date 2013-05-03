@@ -5,6 +5,9 @@
     {% for post in posts %}
       <article>
         <h4>{{ post.title }}</h4>
+        {% if post.caption %}
+          <p>{{ post.caption }}</p>
+        {% endif %}
         {% if post.body %}
         	{% if post.type == 'QuotePost' %}
         	<blockquote>{{ post.body }}</blockquote>
