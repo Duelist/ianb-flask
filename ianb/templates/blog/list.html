@@ -4,7 +4,9 @@
   <div>
     {% for post in posts %}
       <article>
-        <h4>{{ post.title }}</h4>
+        <div class="list-title">{{ post.title }}</div>
+        <time class="list-date">{{ post.pretty_created_at }}</time>
+        <div class="list-post">
         {% if post.caption %}
           <p>{{ post.caption }}</p>
         {% endif %}
@@ -22,6 +24,7 @@
         {% if post.image_url %}
         	<p><img src="{{ post.image_url|safe() }}" /></p>
         {% endif %}
+        </div>
       {% endfor %}
     </article>
   </div>

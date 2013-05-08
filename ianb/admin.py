@@ -1,6 +1,3 @@
-import re
-from unicodedata import normalize
-
 from flask import Blueprint, request, render_template, redirect, url_for
 
 from flask.ext.mongoengine.wtf import model_form
@@ -8,9 +5,9 @@ from flask.ext.mongoengine.wtf import model_form
 from ianb import app, local_settings
 from ianb.models import Post, BlogPost, VideoPost, ImagePost, QuotePost
 from ianb.auth import requires_auth
+from ianb.utils import slugify
 
 admin = Blueprint('admin', __name__, template_folder='templates')
-punct = re.compile(r'[\t !"#$%&\'()*\-/<=>?@\[\\\]^_`{|},.]+')
 
 post_map = {
     "post": BlogPost,
@@ -65,11 +62,3 @@ def detail(post_type=None,slug=None):
 
     local_settings.context['form'] = form
     return render_template('admin/detail.html', context=local_settings.context)
-
-def slugify(phrase=None):
-    slug = []
-    for word in punct.split(phrase.lower()):
-        word = normalize('NFKD', word).encode('ascii','ignore')
-        if word:
-            slug.append(word)
-    return unicode('-'.join(slug))

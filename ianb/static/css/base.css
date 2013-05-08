@@ -5,3 +5,48 @@ body {
                "Lucida Grande",
                Helvetica;
 }
+
+.profile {
+  width: 20%;
+  z-index: 1;
+  position: fixed;
+  
+  min-height: 100%;
+  min-width: 200px;
+}
+
+.content {
+  margin-left: 21%;
+  z-index: 99999;
+}
+
+/* Profile-view formatting */
+
+.profile-wrap {
+  position: absolute;
+  
+  top: 35%;
+  left: 0px;
+  width: 100%;
+  text-align: center;
+}
+
+.profile-text {
+  font-size: 22px;
+}
+
+/* List-view specific post formatting */
+
+.list-title {
+  font-size: 20px;
+}
+
+.list-date {
+  font-size: 12px;
+  color: #959595;
+}
+
+.list-post {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

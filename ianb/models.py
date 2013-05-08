@@ -19,6 +19,10 @@ class Post(db.Document):
     def type(self):
         return self.__class__.__name__
 
+    @property
+    def pretty_created_at(self):
+        return self.created_at.date().strftime('%B %d, %Y')
+
     meta = {
         'allow_inheritance': True,
         'indexes': ['-created_at', 'slug'],
