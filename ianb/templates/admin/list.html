@@ -2,10 +2,12 @@
 
 {% block content %}
   <div>
-    <div><a href="/admin/new/">New Post</a></div>
-    <div><a href="/admin/new/image/">New Image</a></div>
-    <div><a href="/admin/new/video/">New Video</a></div>
-    <div><a href="/admin/new/quote/">New Quote</a></div>
+    <div>
+      <a href="/admin/new/">New Post</a> |
+      <a href="/admin/new/image/">New Image</a> |
+      <a href="/admin/new/video/">New Video</a> |
+      <a href="/admin/new/quote/">New Quote</a>
+    </div>
     <br />
     {% for post in context.posts %}
       <div>{{ post.created_at }} - {{ post.title }} | <a href="/admin/{{ post.slug }}/">Edit</a></div>

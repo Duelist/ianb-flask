@@ -1,16 +1,14 @@
 {% extends "base.html" %}
 
 {% block main %}
-  <div>
-    <div class="profile">
-      <div class="profile-wrap">
-        <img class="avatar" style="border: 1px solid" src="{{ context.gravatar_url }}" />
-        <div class="profile-text">Ian Benedict</div>
-      </div>
+  <div class="profile">
+    <div class="profile-wrap">
+      <img class="avatar" style="" src="{{ context.gravatar_url }}" />
+      <div class="profile-text">Ian Benedict</div>
     </div>
-    <div class="content">
-      {% block content %}
-      {% endblock %}
-    </div>
+  </div>
+  <div class="content">
+    {% block content %}
+    {% endblock %}
   </div>
 {% endblock %}

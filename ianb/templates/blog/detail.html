@@ -1,0 +1,27 @@
+{% extends "index.html" %}
+
+{% block content %}
+  <article class="detail-post">
+    <div class="detail-post-title">{{ post.title }}</div>
+    <time class="detail-post-date">{{ post.pretty_created_at }}</time>
+    <div class="detail-post-content">
+    {% if post.caption %}
+      <p>{{ post.caption }}</p>
+    {% endif %}
+    {% if post.body %}
+      {% if post.type == 'QuotePost' %}
+      <blockquote>{{ post.body }}</blockquote>
+      <p>- {{ post.author }}</p>
+      {% else %}
+      <p>{{ post.body }}</p>
+      {% endif %}
+    {% endif %}
+    {% if post.embed %}
+      {{ post.embed|safe() }}
+    {% endif %}
+    {% if post.image_url %}
+      <p><img src="{{ post.image_url|safe() }}" /></p>
+    {% endif %}
+    </div>
+  </article>
+{% endblock %}

@@ -12,6 +12,13 @@ def list():
                            posts=posts,
                            context=local_settings.context)
 
+@blog.route('/<slug>/')
+def detail(slug=None):
+    post = Post.objects.get_or_404(slug=slug)
+    return render_template('blog/detail.html',
+                           post=post,
+                           context=local_settings.context)
+
 @app.errorhandler(404)
 def error404(error):
     return render_template('404.html', context=local_settings.context), 404

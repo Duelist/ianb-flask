@@ -1,31 +1,12 @@
 {% extends "index.html" %}
 
 {% block content %}
-  <div>
-    {% for post in posts %}
-      <article>
-        <div class="list-title">{{ post.title }}</div>
-        <time class="list-date">{{ post.pretty_created_at }}</time>
-        <div class="list-post">
-        {% if post.caption %}
-          <p>{{ post.caption }}</p>
-        {% endif %}
-        {% if post.body %}
-        	{% if post.type == 'QuotePost' %}
-        	<blockquote>{{ post.body }}</blockquote>
-        	<p>- {{ post.author }}</p>
-        	{% else %}
-        	<p>{{ post.body }}</p>
-        	{% endif %}
-        {% endif %}
-        {% if post.embed %}
-        	{{ post.embed|safe() }}
-        {% endif %}
-        {% if post.image_url %}
-        	<p><img src="{{ post.image_url|safe() }}" /></p>
-        {% endif %}
-        </div>
-      {% endfor %}
-    </article>
-  </div>
+  <ul class="post-list">
+  {% for post in posts %}
+    <li class="list-post">
+      <div class="list-post-title"><a href="/{{ post.slug }}/">{{ post.title }}</a></div>
+      <time class="list-post-date">{{ post.pretty_created_at }}</time>
+    </li>
+  {% endfor %}
+  </ul>
 {% endblock %}

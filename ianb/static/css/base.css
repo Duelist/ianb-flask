@@ -6,6 +6,19 @@ body {
                Helvetica;
 }
 
+a:link {
+  color: #000000;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #252525;
+}
+
+a:hover {
+  color: #e54545;
+}
+
 .profile {
   width: 20%;
   z-index: 1;
@@ -13,11 +26,18 @@ body {
   
   min-height: 100%;
   min-width: 200px;
+
+  border-right: 1px solid #e3e3e3;
 }
 
 .content {
   margin-left: 21%;
   z-index: 99999;
+
+  min-width: 650px;
+
+  padding-top: 100px;
+  padding-bottom: 150px;
 }
 
 /* Profile-view formatting */
@@ -37,16 +57,40 @@ body {
 
 /* List-view specific post formatting */
 
-.list-title {
-  font-size: 20px;
-}
-
-.list-date {
-  font-size: 12px;
-  color: #959595;
+.post-list {
+  list-style-type: none;
+  padding-left: 40px;
 }
 
 .list-post {
+  padding-bottom: 50px;
+}
+
+.list-post-title {
+  font-size: 20px;
+}
+
+.list-post-date {
+  font-size: 14px;
+  color: #959595;
+}
+
+/* Detail-view specific post formatting */
+
+.detail-post {
+  padding-left: 40px;
+}
+
+.detail-post-title {
+  font-size: 20px;
+}
+
+.detail-post-date {
+  font-size: 14px;
+  color: #959595;
+}
+
+.detail-post-content {
   padding-top: 10px;
-  padding-bottom: 10px;
+  max-width: 650px;
 }
