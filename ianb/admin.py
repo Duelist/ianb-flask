@@ -16,16 +16,16 @@ post_map = {
     "quote": QuotePost
 }
 
-@app.route('/admin/')
+@admin.route('/admin/')
 @requires_auth
 def list():
 	posts = Post.objects.all()
 	local_settings.context['posts'] = posts
 	return render_template('admin/list.html', context=local_settings.context)
 
-@app.route('/admin/new/', methods=['GET', 'POST'])
-@app.route('/admin/new/<post_type>/', methods=['GET', 'POST'])
-@app.route('/admin/<slug>/', methods=['GET', 'POST'])
+@admin.route('/admin/new/', methods=['GET', 'POST'])
+@admin.route('/admin/new/<post_type>/', methods=['GET', 'POST'])
+@admin.route('/admin/<slug>/', methods=['GET', 'POST'])
 @requires_auth
 def detail(post_type=None,slug=None):
     form = None
@@ -44,7 +44,7 @@ def detail(post_type=None,slug=None):
             if (form.validate()):
                 form.populate_obj(post)
                 post.save()
-                return redirect(url_for('list'))
+                return redirect(url_for('admin.list'))
         else:
             form = post_form(obj=post)
     else:
@@ -58,7 +58,14 @@ def detail(post_type=None,slug=None):
                 form.populate_obj(post)
                 post.slug = slugify(post.title)
                 post.save()
-                return redirect(url_for('list'))
+                return redirect(url_for('admin.list'))
 
     local_settings.context['form'] = form
     return render_template('admin/detail.html', context=local_settings.context)
+
+@admin.route('/admin/<slug>/preview/')
+def preview(slug=None):
+    post = Post.objects.get_or_404(slug=slug)
+    return render_template('admin/preview.html',
+                           post=post,
+                           context=local_settings.context)

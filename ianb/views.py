@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
 
+from mongoengine.queryset import Q
+
 from ianb import app, local_settings
 from ianb.models import Post
 
@@ -7,7 +9,7 @@ blog = Blueprint('blog', __name__, template_folder='templates')
 
 @blog.route('/')
 def list():
-    posts = Post.objects.all()
+    posts = Post.objects.filter(Q(draft__exists=False) | Q(draft=False))
     return render_template('blog/list.html',
                            posts=posts,
                            context=local_settings.context)

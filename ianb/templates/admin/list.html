@@ -10,7 +10,7 @@
     </div>
     <br />
     {% for post in context.posts %}
-      <div>{{ post.created_at }} - {{ post.title }} | <a href="/admin/{{ post.slug }}/">Edit</a></div>
+      <div>{{ post.created_at }} - {{ post.title }} | <a href="/admin/{{ post.slug }}/">Edit</a> | <a href="/admin/{{ post.slug }}/preview/">Preview</a></div>
     {% endfor %}
   </div>
 {% endblock %}

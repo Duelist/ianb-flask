@@ -8,6 +8,7 @@ class Post(db.Document):
     created_at = db.DateTimeField(default=datetime.datetime.now, required=True)
     title = db.StringField(max_length=255, required=True)
     slug = db.StringField(max_length=255, required=True)
+    draft = db.BooleanField()
 
     def get_absolute_url(self):
         return url_for('post', kwargs={"slug": self.slug})

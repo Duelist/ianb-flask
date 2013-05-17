@@ -6,8 +6,16 @@ body {
                Helvetica;
 }
 
+div {
+  border: 1px solid;
+}
+
+hr {
+  color: #e3e3e3;
+}
+
 a:link {
-  color: #000000;
+  color: black;
   text-decoration: none;
 }
 
@@ -16,26 +24,57 @@ a:visited {
 }
 
 a:hover {
-  color: #e54545;
+  color: #f56565;
 }
 
+/* Responsive CSS */
+
+@media screen and (max-width: 720px) {
+    .profile {
+        position: absolute !important;
+        top: 0;
+        width: 100% !important;
+        height: 60px;
+        min-height: 0px !important;
+    }
+
+    .content {
+      min-width: 0px !important;
+      margin-left: 0px !important;
+      padding-top: 0px !important;
+    }
+    
+    .avatar {
+      display: none;
+    }
+    
+    .profile-wrap {      
+      top: 0px !important;
+      width: 100%;
+      height: 100%;
+    }
+    
+    .detail-post {
+      padding-left: 0px !important;
+      padding-right: 0px !important;
+    }
+}
+
+/* Section formatting */
+
 .profile {
-  width: 20%;
+  width: 200px;
   z-index: 1;
   position: fixed;
-  
-  min-height: 100%;
-  min-width: 200px;
 
-  border-right: 1px solid #e3e3e3;
+  min-height: 100%;
 }
 
 .content {
-  margin-left: 21%;
+  margin-left: 205px;
   z-index: 99999;
 
-  min-width: 650px;
-
+  min-width: 520px;
   padding-top: 100px;
   padding-bottom: 150px;
 }
@@ -52,6 +91,10 @@ a:hover {
 }
 
 .profile-text {
+  font-family: "Helvetica Neue", 
+               "Lucida Grande",
+               Helvetica;
+
   font-size: 22px;
 }
 
@@ -77,11 +120,20 @@ a:hover {
 
 /* Detail-view specific post formatting */
 
+.detail-back {
+  padding-bottom: 20px;
+}
+
 .detail-post {
   padding-left: 40px;
+  padding-right: 40px;
 }
 
 .detail-post-title {
+  font-family: "Helvetica Neue", 
+               "Lucida Grande",
+               Helvetica;
+
   font-size: 20px;
 }
 
@@ -91,6 +143,6 @@ a:hover {
 }
 
 .detail-post-content {
-  padding-top: 10px;
-  max-width: 650px;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }

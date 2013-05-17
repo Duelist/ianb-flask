@@ -2,18 +2,20 @@
 
 {% block content %}
   <article class="detail-post">
+    <div class="detail-back"><a href="../">&#8249; Back</a></div>
     <div class="detail-post-title">{{ post.title }}</div>
     <time class="detail-post-date">{{ post.pretty_created_at }}</time>
+
     <div class="detail-post-content">
     {% if post.caption %}
       <p>{{ post.caption }}</p>
     {% endif %}
     {% if post.body %}
       {% if post.type == 'QuotePost' %}
-      <blockquote>{{ post.body }}</blockquote>
-      <p>- {{ post.author }}</p>
+      <blockquote class="detail-quote-body">{{ post.body }}</blockquote>
+      <div class="detail-quote-author"> &mdash; {{ post.author }}</div>
       {% else %}
-      <p>{{ post.body }}</p>
+        {{ post.body|e }}
       {% endif %}
     {% endif %}
     {% if post.embed %}
@@ -22,6 +24,23 @@
     {% if post.image_url %}
       <p><img src="{{ post.image_url|safe() }}" /></p>
     {% endif %}
+    </div>
+
+    <div class="detail-post-comments">
+      <div id="disqus_thread"></div>
+      <script type="text/javascript">
+          /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+          var disqus_shortname = 'ianbenedict';
+
+          /* * * DON'T EDIT BELOW THIS LINE * * */
+          (function() {
+              var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+              dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+              (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+          })();
+      </script>
+      <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+      <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
     </div>
   </article>
 {% endblock %}
