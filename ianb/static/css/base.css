@@ -37,7 +37,8 @@ a:hover {
     .content {
       position: relative !important;
       top: 60px !important;
-      min-width: 0px;
+      min-width: 0px !important;
+      width: 100%;
       margin-left: 0px !important;
       padding-top: 0px !important;
     }
@@ -80,7 +81,7 @@ a:hover {
 }
 
 .content {
-  width: 750px;  
+  min-width: 520px;  
   z-index: 99999;
 
   margin-left: 205px;
