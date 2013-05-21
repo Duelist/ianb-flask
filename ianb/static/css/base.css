@@ -37,7 +37,7 @@ a:hover {
     .content {
       position: relative !important;
       top: 60px !important;
-      min-width: 0px !important;
+      min-width: 0px;
       margin-left: 0px !important;
       padding-top: 0px !important;
     }
@@ -80,10 +80,10 @@ a:hover {
 }
 
 .content {
-  margin-left: 205px;
+  width: 750px;  
   z-index: 99999;
 
-  min-width: 520px;
+  margin-left: 205px;
   padding-top: 100px;
   padding-bottom: 150px;
 }
