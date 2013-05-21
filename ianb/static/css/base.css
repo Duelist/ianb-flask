@@ -6,10 +6,6 @@ body {
                Helvetica;
 }
 
-div {
-  border: 1px solid;
-}
-
 hr {
   color: #e3e3e3;
 }
@@ -31,14 +27,16 @@ a:hover {
 
 @media screen and (max-width: 720px) {
     .profile {
-        position: absolute !important;
-        top: 0;
-        width: 100% !important;
-        height: 60px;
-        min-height: 0px !important;
+      position: absolute !important;
+      top: 0;
+      width: 100% !important;
+      height: 50px;
+      min-height: 0px !important;
     }
 
     .content {
+      position: relative !important;
+      top: 60px !important;
       min-width: 0px !important;
       margin-left: 0px !important;
       padding-top: 0px !important;
@@ -48,10 +46,21 @@ a:hover {
       display: none;
     }
     
-    .profile-wrap {      
+    .profile-wrap {
+      position: relative !important;
       top: 0px !important;
       width: 100%;
       height: 100%;
+    }
+    
+    .profile-text {
+      position: relative !important;
+      top: 15px;
+      height: 30px;
+    }
+
+    .post-list {
+      padding-left: 0px !important;
     }
     
     .detail-post {
@@ -121,7 +130,7 @@ a:hover {
 /* Detail-view specific post formatting */
 
 .detail-back {
-  padding-bottom: 20px;
+  padding-bottom: 30px;
 }
 
 .detail-post {

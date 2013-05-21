@@ -4,7 +4,7 @@
   <article class="detail-post">
     <div class="detail-back"><a href="../">&#8249; Back</a></div>
     <div class="detail-post-title">{{ post.title }}</div>
-    <time class="detail-post-date">{{ post.pretty_created_at }}</time>
+    <div class="detail-post-date"><time>{{ post.pretty_created_at }}</time></div>
 
     <div class="detail-post-content">
     {% if post.caption %}
@@ -15,7 +15,7 @@
       <blockquote class="detail-quote-body">{{ post.body }}</blockquote>
       <div class="detail-quote-author"> &mdash; {{ post.author }}</div>
       {% else %}
-        {{ post.body|e }}
+        {{ post.body|safe() }}
       {% endif %}
     {% endif %}
     {% if post.embed %}
